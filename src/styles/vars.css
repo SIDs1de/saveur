@@ -1,0 +1,25 @@
+:root {
+  --color-accent-gold: #c8963e;
+  --color-accent-gold-dark: #b88430;
+
+  --color-bg-card: #ffffff;
+  --color-bg-forest: #152620;
+  --color-bg-page: #fafaf8;
+
+  --color-border-default: #e4dfd4;
+  --color-border-field: #dedbd4;
+  --color-border-soft: #e7e1d5;
+
+  --color-state-error: #bf554b;
+  --color-state-success: #3e6b57;
+
+  --color-text-primary: #1a1a1a;
+  --color-text-forest: #1a1a1a;
+  --color-text-secondary: #777267;
+  --color-text-light: #f8f4ea;
+  --color-text-muted-light: #c7cec8;
+  --color-text-meta-light: #94a099;
+
+  --font-body: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: var(--font-cormorant-garamond), Georgia, 'Times New Roman', serif;
+}
