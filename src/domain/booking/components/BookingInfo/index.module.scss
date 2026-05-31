@@ -1,10 +1,14 @@
 .root {
   padding: 64px;
+  background-color: var(--color-bg-forest);
+  max-width: 560px;
+}
+
+.main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--color-bg-forest);
-  max-width: 560px;
+  height: 100%;
 }
 
 .subtitle {
