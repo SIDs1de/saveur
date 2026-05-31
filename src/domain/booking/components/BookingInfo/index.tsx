@@ -1,4 +1,4 @@
-import { TransitionLayer } from '../TransitionLayer';
+import { TransitionLayer } from '../../../../shared/components/TransitionLayer';
 import styles from './index.module.scss';
 import { BookingInfoProps } from './types';
 import clsx from 'clsx';

@@ -1,0 +1,33 @@
+.root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+
+.main {
+  padding: 58px 64px 96px;
+  height: 100%;
+  width: 100%;
+}
+
+.step {
+  margin-bottom: 4px;
+  font-weight: 700;
+  color: var(--color-accent-gold);
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  line-height: 14px;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.description {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  margin-bottom: 18px;
+}

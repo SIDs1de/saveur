@@ -1,9 +1,10 @@
+import { TransitionLayer } from '../TransitionLayer';
+import { LOADER_MOTION_PROPS } from './constants';
 import styles from './index.module.scss';
-import { TransitionLayer } from './TransitionLayer';
 import { ButtonProps } from './types';
 import { buttonVariants } from './variants';
 import clsx from 'clsx';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { Loader } from 'lucide-react';
 
 export const Button = ({
@@ -14,6 +15,7 @@ export const Button = ({
   isFullWidth = true,
   isLoading,
   disabled,
+  type,
 }: ButtonProps) => {
   const isDisabled = disabled || isLoading;
 
@@ -22,13 +24,14 @@ export const Button = ({
       disabled={isDisabled}
       onClick={onClick}
       className={clsx(buttonVariants({ size, variant }), isFullWidth && styles.fullWidth)}
+      type={type}
     >
       <AnimatePresence>
-        {isLoading && (
-          <TransitionLayer>
-            <Loader className={styles.loader} />
-          </TransitionLayer>
-        )}
+        <TransitionLayer condition={isLoading} motionProps={LOADER_MOTION_PROPS}>
+          <div className={styles.loaderWrapper}>
+            <Loader className={styles.loader} width={16} />
+          </div>
+        </TransitionLayer>
       </AnimatePresence>
       {children}
     </button>
