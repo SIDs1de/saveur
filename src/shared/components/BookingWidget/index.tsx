@@ -1,3 +1,3 @@
 export const BookingWidget = () => {
-  return <div>Booking Widget</div>;
+  return <div className={'container'}>Booking Widget</div>;
 };

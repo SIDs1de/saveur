@@ -1,5 +1,6 @@
 @use './vars';
 
+// GLOBAL STYLES
 body {
   background-color: var(--color-bg-page);
   color: var(--color-text-primary);
@@ -54,7 +55,13 @@ label,
   letter-spacing: 0.04em;
 }
 
-// RESETS
+// DEFAULTS
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 address {
   font-style: normal;
 }
