@@ -1,5 +1,5 @@
-import { LOADER_MOTION_PROPS } from './constants';
 import styles from './index.module.scss';
+import { TransitionLayer } from './TransitionLayer';
 import { ButtonProps } from './types';
 import { buttonVariants } from './variants';
 import clsx from 'clsx';
@@ -25,9 +25,9 @@ export const Button = ({
     >
       <AnimatePresence>
         {isLoading && (
-          <motion.div {...LOADER_MOTION_PROPS}>
+          <TransitionLayer>
             <Loader className={styles.loader} />
-          </motion.div>
+          </TransitionLayer>
         )}
       </AnimatePresence>
       {children}
