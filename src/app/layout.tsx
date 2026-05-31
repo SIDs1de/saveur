@@ -19,7 +19,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <AppProvider>
           <div className={styles.layout}>
             <Header />
-            <main className={styles.main}>{children}</main>
+            <main>{children}</main>
             <Footer />
           </div>
         </AppProvider>
