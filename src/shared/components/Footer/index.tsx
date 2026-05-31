@@ -5,7 +5,7 @@ export const Footer = () => {
     <footer className={styles.root}>
       <div className={'container'}>
         <div className={styles.row}>
-          <span className={styles.text}>© 2024 SAVEUR</span>
+          <span className={styles.text}>© 2026 SAVEUR</span>
           <span className={styles.text}>БРОНИРОВАНИЕ БЕЗ ЗВОНКОВ И ОЖИДАНИЯ</span>
         </div>
       </div>

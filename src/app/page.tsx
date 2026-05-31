@@ -1,4 +1,4 @@
-import { BookingWidget } from '@/shared/components/BookingWidget';
+import { BookingWidget } from '@/domain/booking/components/BookingWidget';
 
 export default function Home() {
   return <BookingWidget />;
