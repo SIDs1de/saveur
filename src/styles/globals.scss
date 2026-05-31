@@ -25,7 +25,8 @@ h1,
   font-family: var(--font-heading);
   font-size: 76px;
   font-weight: 600;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.05em;
+  line-height: 0.8;
 }
 
 h2,
@@ -64,4 +65,12 @@ label,
 
 address {
   font-style: normal;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
 }
