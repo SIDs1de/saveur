@@ -1,5 +1,8 @@
 import 'normalize.css';
-
+import '@/styles/globals.scss';
+import styles from './layout.module.scss';
+import { cormorantGaramond, inter } from '@/shared/config';
+import { clsx } from 'clsx';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -14,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body className={clsx(inter.variable, cormorantGaramond.variable)}>
+        <div className={styles.container}>{children}</div>
+      </body>
     </html>
   );
 }

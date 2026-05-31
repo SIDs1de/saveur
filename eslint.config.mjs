@@ -19,7 +19,12 @@ const eslintConfig = defineConfig([
       'simple-import-sort': simpleImportSort,
     },
     rules: {
-      'simple-import-sort/imports': 'error',
+      'simple-import-sort/imports': [
+        'error',
+        {
+          groups: [['^']],
+        },
+      ],
       'simple-import-sort/exports': 'error',
     },
   },
