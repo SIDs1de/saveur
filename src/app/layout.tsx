@@ -1,6 +1,8 @@
 import 'normalize.css';
 import '@/styles/globals.scss';
-import styles from './layout.module.scss';
+import styles from './layot.module.scss';
+import { Footer } from '@/shared/components/Footer';
+import { Header } from '@/shared/components/Header';
 import { cormorantGaramond, inter } from '@/shared/config';
 import { clsx } from 'clsx';
 import { Metadata } from 'next';
@@ -16,9 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
-      <body className={clsx(inter.variable, cormorantGaramond.variable)}>
-        <div className={styles.container}>{children}</div>
+    <html lang="ru" className={clsx(inter.variable, cormorantGaramond.variable)}>
+      <body>
+        <div className={styles.layout}>
+          <Header />
+          <main className={styles.main}>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

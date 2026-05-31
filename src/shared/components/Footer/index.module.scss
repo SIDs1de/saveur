@@ -1,0 +1,15 @@
+.root {
+  padding-bottom: 60px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.08em;
+}
