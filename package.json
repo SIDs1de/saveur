@@ -2,14 +2,24 @@
   "name": "testovoe",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.14.0",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "pnpm scss:types && concurrently \"next dev\" \"pnpm scss:types:watch\"",
+    "build": "pnpm scss:types && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "scss:types": "typed-scss-modules src --outputFolder __generated__ --exportType default",
+    "scss:types:watch": "typed-scss-modules src --outputFolder __generated__ --exportType default --watch --ignoreInitial",
+    "types": "tsc --noEmit",
+    "check": "pnpm format:check && pnpm lint && pnpm scss:types && pnpm types",
+    "check:push": "pnpm check && next build",
+    "prepare": "husky"
   },
   "dependencies": {
     "next": "16.2.6",
+    "normalize.css": "^8.0.1",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
@@ -17,8 +27,14 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^10.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "eslint-plugin-simple-import-sort": "^13.0.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.8.3",
+    "sass": "^1.100.0",
+    "typed-scss-modules": "^8.1.1",
     "typescript": "^5"
   }
 }
