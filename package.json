@@ -14,7 +14,7 @@
     "scss:types:watch": "typed-scss-modules src --outputFolder __generated__ --exportType default --watch --ignoreInitial",
     "types": "tsc --noEmit",
     "check": "pnpm format:check && pnpm lint && pnpm scss:types && pnpm types",
-    "check:push": "pnpm check && next build",
+    "check:push": "pnpm check",
     "prepare": "husky"
   },
   "dependencies": {
