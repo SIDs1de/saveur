@@ -1,6 +1,6 @@
 import 'normalize.css';
 import '@/styles/globals.scss';
-import styles from './layot.module.scss';
+import styles from './layout.module.scss';
 import { Footer } from '@/shared/components/Footer';
 import { Header } from '@/shared/components/Header';
 import { cormorantGaramond, inter } from '@/shared/config';
