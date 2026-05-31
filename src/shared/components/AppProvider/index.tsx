@@ -1,6 +1,6 @@
-import { AppWrapperProps } from './types';
+import { AppProviderProps } from './types';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 
-export const AppWrapper = ({ children }: AppWrapperProps) => {
+export const AppProvider = ({ children }: AppProviderProps) => {
   return <AntdRegistry>{children}</AntdRegistry>;
 };
