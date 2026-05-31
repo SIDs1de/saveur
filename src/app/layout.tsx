@@ -10,6 +10,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'SAVEUR – бронирование столика',
   description: 'Онлайн-бронирование столика в ресторане SAVEUR',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
