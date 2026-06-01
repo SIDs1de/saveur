@@ -13,9 +13,10 @@ export const Button = ({
   size,
   variant,
   isFullWidth = true,
-  isLoading,
+  isLoading = false,
   disabled,
   type,
+  className,
 }: ButtonProps) => {
   const isDisabled = disabled || isLoading;
 
@@ -23,7 +24,11 @@ export const Button = ({
     <button
       disabled={isDisabled}
       onClick={onClick}
-      className={clsx(buttonVariants({ size, variant }), isFullWidth && styles.fullWidth)}
+      className={clsx(
+        buttonVariants({ size, variant }),
+        isFullWidth && styles.fullWidth,
+        className,
+      )}
       type={type}
     >
       <AnimatePresence>

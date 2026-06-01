@@ -1,14 +1,14 @@
 'use client';
 
 import {
-  BOOKING_FORM_CONFIG,
-  BOOKING_FORM_RULES,
   DATE_PICKER_PROPS,
+  FORM_CONFIG,
+  FORM_RULES,
   GUESTS_OPTIONS,
   TIME_OPTIONS,
 } from './constants';
 import styles from './index.module.scss';
-import { BookingFormValues } from './types';
+import { FormValues } from './types';
 import { FormController } from '@/domain/booking/components/FormController';
 import { bookingFlowStore } from '@/domain/booking/model/bookingFlow.store';
 import { Button } from '@/shared/components/Button';
@@ -16,12 +16,12 @@ import { Row } from '@/shared/components/Row';
 import { DatePicker, Input, Select } from 'antd';
 import { useForm } from 'react-hook-form';
 
-export const BookingForm = () => {
+export const Form = () => {
   const {
     control,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<BookingFormValues>(BOOKING_FORM_CONFIG);
+  } = useForm<FormValues>(FORM_CONFIG);
 
   return (
     <form className={styles.root} onSubmit={handleSubmit(bookingFlowStore.submit)}>
@@ -29,7 +29,7 @@ export const BookingForm = () => {
         name="name"
         label="Имя"
         control={control}
-        rules={BOOKING_FORM_RULES.name}
+        rules={FORM_RULES.name}
         render={({ field, hasError }) => (
           <Input {...field} placeholder="Введите ваше имя" status={hasError ? 'error' : ''} />
         )}
@@ -38,7 +38,7 @@ export const BookingForm = () => {
         name="phone"
         label="Телефон"
         control={control}
-        rules={BOOKING_FORM_RULES.phone}
+        rules={FORM_RULES.phone}
         render={({ field, hasError }) => (
           <Input
             {...field}
@@ -53,7 +53,7 @@ export const BookingForm = () => {
           name="date"
           label="Дата"
           control={control}
-          rules={BOOKING_FORM_RULES.date}
+          rules={FORM_RULES.date}
           render={({ field, hasError }) => (
             <DatePicker
               value={field.value}
@@ -68,7 +68,7 @@ export const BookingForm = () => {
           name="time"
           label="Время"
           control={control}
-          rules={BOOKING_FORM_RULES.time}
+          rules={FORM_RULES.time}
           render={({ field, hasError }) => (
             <Select
               {...field}
@@ -83,7 +83,7 @@ export const BookingForm = () => {
         name="guests"
         label="Количество гостей"
         control={control}
-        rules={BOOKING_FORM_RULES.guests}
+        rules={FORM_RULES.guests}
         render={({ field, hasError }) => (
           <Select
             {...field}
@@ -94,7 +94,7 @@ export const BookingForm = () => {
         )}
       />
       <Button isLoading={isSubmitting} type="submit">
-        ЗАБРОНИРОВАТЬ СТОЛИК
+        {isSubmitting ? 'БРОНИРУЮ...' : 'ЗАБРОНИРОВАТЬ СТОЛИК'}
       </Button>
     </form>
   );

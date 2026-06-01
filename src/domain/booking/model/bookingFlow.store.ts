@@ -1,5 +1,5 @@
 import { submitBooking } from '@/domain/booking/api/submitBooking';
-import { BookingFormValues } from '@/domain/booking/components/BookingForm/types';
+import { FormValues } from '@/domain/booking/components/Form/types';
 import { mapBookingFormValues } from '@/domain/booking/model/mapBookingFormValues';
 import { BookingDetails, BookingStep } from '@/domain/booking/types';
 import { action, computed, makeObservable, observable } from 'mobx';
@@ -40,11 +40,10 @@ export class BookingFlowStore {
   }
 
   reset() {
-    this.setBooking(null);
     this.setStep(BookingStep.FORM);
   }
 
-  async submit(values: BookingFormValues) {
+  async submit(values: FormValues) {
     const booking = mapBookingFormValues(values);
     const result = await submitBooking(booking);
 

@@ -1,4 +1,4 @@
-import { isDisabledDate } from '@/domain/booking/components/BookingForm/utils';
+import { isDisabledDate } from '@/domain/booking/components/Form/utils';
 import dayjs from 'dayjs';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 

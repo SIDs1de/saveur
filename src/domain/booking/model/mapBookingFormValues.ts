@@ -1,7 +1,7 @@
-import { BookingFormValues } from '@/domain/booking/components/BookingForm/types';
+import { FormValues } from '@/domain/booking/components/Form/types';
 import { BookingDetails } from '@/domain/booking/types';
 
-export function mapBookingFormValues(values: BookingFormValues): BookingDetails {
+export function mapBookingFormValues(values: FormValues): BookingDetails {
   if (!values.date || !values.time || !values.guests) {
     throw new Error('Cannot submit an incomplete booking form');
   }

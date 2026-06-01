@@ -1,5 +1,5 @@
-import { BookingWidget } from '@/domain/booking/components/BookingWidget';
+import { Widget } from '@/domain/booking/components/Widget';
 
 export default function Home() {
-  return <BookingWidget />;
+  return <Widget />;
 }

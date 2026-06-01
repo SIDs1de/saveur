@@ -1,9 +1,9 @@
 import styles from './index.module.scss';
-import { BookingInfoProps } from './types';
+import { InfoProps } from './types';
 import { TransitionLayer } from '@/shared/components/TransitionLayer';
 import clsx from 'clsx';
 
-export const BookingInfo = ({ className }: BookingInfoProps) => {
+export const Info = ({ className }: InfoProps) => {
   return (
     <div className={clsx(styles.root, className)}>
       <TransitionLayer className={styles.main}>

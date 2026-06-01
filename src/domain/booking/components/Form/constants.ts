@@ -1,4 +1,4 @@
-import { BookingFormRules, BookingFormValues } from './types';
+import { FormRules, FormValues } from './types';
 import { isDisabledDate } from './utils';
 import { isValidRuPhone, pluralNoun } from '@/shared/utils';
 import { DefaultOptionType } from 'antd/es/select';
@@ -20,7 +20,7 @@ for (let i = 1; i <= 12; i++) {
   });
 }
 
-export const DEFAULT_FORM_VALUES: DefaultValues<BookingFormValues> = {
+export const DEFAULT_FORM_VALUES: DefaultValues<FormValues> = {
   name: '',
   phone: '',
   date: null,
@@ -28,12 +28,12 @@ export const DEFAULT_FORM_VALUES: DefaultValues<BookingFormValues> = {
   guests: undefined,
 };
 
-export const BOOKING_FORM_CONFIG: UseFormProps<BookingFormValues> = {
+export const FORM_CONFIG: UseFormProps<FormValues> = {
   mode: 'onBlur',
   defaultValues: DEFAULT_FORM_VALUES,
 };
 
-export const BOOKING_FORM_RULES: BookingFormRules = {
+export const FORM_RULES: FormRules = {
   name: {
     required: 'Введите имя',
   },
