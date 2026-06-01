@@ -4,7 +4,7 @@ import { mapBookingFormValues } from '@/domain/booking/model/mapBookingFormValue
 import { BookingDetails, BookingStep } from '@/domain/booking/types';
 import { action, computed, makeObservable, observable } from 'mobx';
 
-class BookingFlowStore {
+export class BookingFlowStore {
   constructor() {
     makeObservable(this, {
       step: observable,

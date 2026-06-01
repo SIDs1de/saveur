@@ -9,5 +9,5 @@ export const isValidRuPhone = (value: string) => {
     return digits.length === 11;
   }
 
-  return digits.length === 10;
+  return false;
 };

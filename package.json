@@ -12,8 +12,10 @@
     "format:check": "prettier . --check",
     "scss:types": "typed-scss-modules src --outputFolder __generated__ --exportType default",
     "scss:types:watch": "typed-scss-modules src --outputFolder __generated__ --exportType default --watch --ignoreInitial",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "types": "tsc --noEmit",
-    "check": "pnpm format:check && pnpm lint && pnpm scss:types && pnpm types",
+    "check": "pnpm format:check && pnpm lint && pnpm scss:types && pnpm types && pnpm test",
     "check:push": "pnpm check",
     "prepare": "husky"
   },
@@ -46,6 +48,7 @@
     "prettier": "^3.8.3",
     "sass": "^1.100.0",
     "typed-scss-modules": "^8.1.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.7"
   }
 }
