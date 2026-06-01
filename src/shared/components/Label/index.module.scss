@@ -1,11 +1,16 @@
 .root {
   display: flex;
   flex-direction: column;
-  gap: 6px;
   width: 100%;
+}
+
+.text {
+  margin-bottom: 6px;
 }
 
 .error {
   color: var(--color-state-error);
   font-size: 11px;
+  margin-top: 6px;
+  display: block;
 }
