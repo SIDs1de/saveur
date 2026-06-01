@@ -29,6 +29,9 @@ importers:
       lucide-react:
         specifier: ^1.17.0
         version: 1.17.0(react@19.2.4)
+      mobx:
+        specifier: ^6.15.4
+        version: 6.15.4
       next:
         specifier: 16.2.6
         version: 16.2.6(@babel/core@7.29.7)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.100.0)
@@ -63,6 +66,9 @@ importers:
       eslint-config-next:
         specifier: 16.2.6
         version: 16.2.6(@typescript-eslint/parser@8.60.0(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4)(typescript@5.9.3)
+      eslint-plugin-no-relative-import-paths:
+        specifier: ^1.6.1
+        version: 1.6.1
       eslint-plugin-simple-import-sort:
         specifier: ^13.0.0
         version: 13.0.0(eslint@9.39.4)
@@ -1603,6 +1609,9 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
 
+  eslint-plugin-no-relative-import-paths@1.6.1:
+    resolution: {integrity: sha512-YZNeOnsOrJcwhFw0X29MXjIzu2P/f5X2BZDPWw1R3VUYBRFxNIh77lyoL/XrMU9ewZNQPcEvAgL/cBOT1P330A==}
+
   eslint-plugin-react-hooks@7.1.1:
     resolution: {integrity: sha512-f2I7Gw6JbvCexzIInuSbZpfdQ44D7iqdWX01FKLvrPgqxoE7oMj8clOfto8U6vYiz4yd5oKu39rRSVOe1zRu0g==}
     engines: {node: '>=18'}
@@ -2118,6 +2127,9 @@ packages:
 
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
+
+  mobx@6.15.4:
+    resolution: {integrity: sha512-do+2UsEKRVT70W/QqP2F2sju2x4p2xZo+5/azXqKjXgTk2jfmzsLjzwW0YI8CBEjy4ZUdU8EunXocXXwJdCrtw==}
 
   motion-dom@12.40.0:
     resolution: {integrity: sha512-HxU3ZaBwNPVQUBQf1xxgq+7JrPNZvjLVxgbpEZL7RrWJnsxOf0/OM+yrHG9ogLQ31Do/r57Oz2gQWPK+6q62mg==}
@@ -4444,6 +4456,8 @@ snapshots:
       safe-regex-test: 1.1.0
       string.prototype.includes: 2.0.1
 
+  eslint-plugin-no-relative-import-paths@1.6.1: {}
+
   eslint-plugin-react-hooks@7.1.1(eslint@9.39.4):
     dependencies:
       '@babel/core': 7.29.7
@@ -4982,6 +4996,8 @@ snapshots:
       brace-expansion: 1.1.15
 
   minimist@1.2.8: {}
+
+  mobx@6.15.4: {}
 
   motion-dom@12.40.0:
     dependencies:

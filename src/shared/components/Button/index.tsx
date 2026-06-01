@@ -1,8 +1,8 @@
-import { TransitionLayer } from '../TransitionLayer';
 import { LOADER_MOTION_PROPS } from './constants';
 import styles from './index.module.scss';
 import { ButtonProps } from './types';
 import { buttonVariants } from './variants';
+import { TransitionLayer } from '@/shared/components/TransitionLayer';
 import clsx from 'clsx';
 import { AnimatePresence } from 'framer-motion';
 import { Loader } from 'lucide-react';

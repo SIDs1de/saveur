@@ -1,23 +1,15 @@
-import { TransitionLayer } from '../../../../shared/components/TransitionLayer';
-import { BookingForm } from '../BookingForm';
-import { BOOKING_FORM_BLOCK_MOTION_PROPS } from './constants';
 import styles from './index.module.scss';
-import { BookingFormProps } from './types';
-import clsx from 'clsx';
+import { BookingForm } from '@/domain/booking/components/BookingForm';
 
-export const BookingFormBlock = ({ className }: BookingFormProps) => {
+export const BookingFormBlock = () => {
   return (
-    <div className={clsx(styles.root, className)}>
-      <TransitionLayer motionProps={BOOKING_FORM_BLOCK_MOTION_PROPS}>
-        <div className={styles.main}>
-          <span className={styles.step}>Шаг 01</span>
-          <h2 className={styles.title}>Забронировать столик</h2>
-          <p className={styles.description}>
-            Заполните форму — подтверждение займёт всего пару секунд.
-          </p>
-          <BookingForm />
-        </div>
-      </TransitionLayer>
+    <div className={styles.main}>
+      <span className={styles.step}>Шаг 01</span>
+      <h2 className={styles.title}>Забронировать столик</h2>
+      <p className={styles.description}>
+        Заполните форму — подтверждение займёт всего пару секунд.
+      </p>
+      <BookingForm />
     </div>
   );
 };

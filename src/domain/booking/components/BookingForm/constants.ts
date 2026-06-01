@@ -1,7 +1,8 @@
-import { BookingFormValues } from './types';
-import { pluralNoun } from '@/shared/utils';
+import { BookingFormRules, BookingFormValues } from './types';
+import { isDisabledDate } from './utils';
+import { isValidRuPhone, pluralNoun } from '@/shared/utils';
 import { DefaultOptionType } from 'antd/es/select';
-import { DefaultValues } from 'react-hook-form';
+import { DefaultValues, UseFormProps } from 'react-hook-form';
 
 export const TIME_OPTIONS: DefaultOptionType[] = [];
 
@@ -25,4 +26,34 @@ export const DEFAULT_FORM_VALUES: DefaultValues<BookingFormValues> = {
   date: undefined,
   time: undefined,
   guests: undefined,
+};
+
+export const BOOKING_FORM_CONFIG: UseFormProps<BookingFormValues> = {
+  mode: 'onBlur',
+  defaultValues: DEFAULT_FORM_VALUES,
+};
+
+export const BOOKING_FORM_RULES: BookingFormRules = {
+  name: {
+    required: 'Введите имя',
+  },
+  phone: {
+    required: 'Введите телефон',
+    validate: (value) => isValidRuPhone(value) || 'Введите корректный номер: +7 или 8, 10 цифр',
+  },
+  date: {
+    required: 'Выберите дату',
+  },
+  time: {
+    required: 'Выберите время',
+  },
+  guests: {
+    required: 'Выберите количество гостей',
+  },
+};
+
+export const DATE_PICKER_PROPS = {
+  format: 'DD.MM.YYYY',
+  placeholder: 'дд.мм.гг',
+  disabledDate: isDisabledDate,
 };

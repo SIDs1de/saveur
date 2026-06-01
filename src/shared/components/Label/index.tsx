@@ -1,7 +1,7 @@
-import { TransitionLayer } from '../TransitionLayer';
 import { LABEL_MOTION_PROPS } from './constants';
 import styles from './index.module.scss';
 import { LabelProps } from './types';
+import { TransitionLayer } from '@/shared/components/TransitionLayer';
 
 export const Label = ({ text, field, error }: LabelProps) => {
   return (

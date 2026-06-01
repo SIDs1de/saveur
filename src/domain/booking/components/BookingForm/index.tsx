@@ -1,135 +1,95 @@
 'use client';
 
-import { DEFAULT_FORM_VALUES, GUESTS_OPTIONS, TIME_OPTIONS } from './constants';
+import {
+  BOOKING_FORM_CONFIG,
+  BOOKING_FORM_RULES,
+  DATE_PICKER_PROPS,
+  GUESTS_OPTIONS,
+  TIME_OPTIONS,
+} from './constants';
 import styles from './index.module.scss';
 import { BookingFormValues } from './types';
-import { isDisabledDate, onSubmit } from './utils';
+import { onSubmit } from './utils';
+import { FormController } from '@/domain/booking/components/FormController';
 import { Button } from '@/shared/components/Button';
-import { Label } from '@/shared/components/Label';
 import { Row } from '@/shared/components/Row';
-import { isValidRuPhone } from '@/shared/utils/isValidRuPhone';
 import { DatePicker, Input, Select } from 'antd';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 export const BookingForm = () => {
   const {
     control,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<BookingFormValues>({
-    mode: 'onBlur',
-    defaultValues: DEFAULT_FORM_VALUES,
-  });
+  } = useForm<BookingFormValues>(BOOKING_FORM_CONFIG);
 
   return (
     <form className={styles.root} onSubmit={handleSubmit(onSubmit)}>
-      <Controller
+      <FormController
         name="name"
+        label="Имя"
         control={control}
-        rules={{
-          required: 'Введите имя',
-        }}
-        render={({ field, fieldState }) => (
-          <Label
-            text="Имя"
-            error={fieldState.error?.message}
-            field={
-              <Input
-                {...field}
-                placeholder="Введите ваше имя"
-                status={fieldState.error ? 'error' : ''}
-              />
-            }
-          />
+        rules={BOOKING_FORM_RULES.name}
+        render={({ field, hasError }) => (
+          <Input {...field} placeholder="Введите ваше имя" status={hasError ? 'error' : ''} />
         )}
       />
-      <Controller
+      <FormController
         name="phone"
+        label="Телефон"
         control={control}
-        rules={{
-          required: 'Введите телефон',
-          validate: (value) =>
-            isValidRuPhone(value) || 'Введите корректный номер: +7 или 8, 10 цифр',
-        }}
-        render={({ field, fieldState }) => (
-          <Label
-            text="Телефон"
-            error={fieldState.error?.message}
-            field={
-              <Input
-                {...field}
-                type="tel"
-                placeholder="Введите ваш номер телефона"
-                status={fieldState.error ? 'error' : ''}
-              />
-            }
+        rules={BOOKING_FORM_RULES.phone}
+        render={({ field, hasError }) => (
+          <Input
+            {...field}
+            type="tel"
+            placeholder="Введите ваш номер телефона"
+            status={hasError ? 'error' : ''}
           />
         )}
       />
       <Row>
-        <Controller
+        <FormController
           name="date"
+          label="Дата"
           control={control}
-          rules={{
-            required: 'Выберите дату',
-          }}
-          render={({ field, fieldState }) => (
-            <Label
-              text="Дата"
-              error={fieldState.error?.message}
-              field={
-                <DatePicker
-                  value={field.value}
-                  onChange={field.onChange}
-                  format="DD.MM.YYYY"
-                  placeholder="дд.мм.гг"
-                  status={fieldState.error ? 'error' : ''}
-                  disabledDate={isDisabledDate}
-                />
-              }
+          rules={BOOKING_FORM_RULES.date}
+          render={({ field, hasError }) => (
+            <DatePicker
+              value={field.value}
+              onChange={field.onChange}
+              onBlur={field.onBlur}
+              status={hasError ? 'error' : ''}
+              {...DATE_PICKER_PROPS}
             />
           )}
         />
-        <Controller
+        <FormController
           name="time"
+          label="Время"
           control={control}
-          rules={{
-            required: 'Выберите время',
-          }}
-          render={({ field, fieldState }) => (
-            <Label
-              text="Время"
-              error={fieldState.error?.message}
-              field={
-                <Select
-                  {...field}
-                  options={TIME_OPTIONS}
-                  placeholder="Выберите время"
-                  status={fieldState.error ? 'error' : ''}
-                />
-              }
+          rules={BOOKING_FORM_RULES.time}
+          render={({ field, hasError }) => (
+            <Select
+              {...field}
+              options={TIME_OPTIONS}
+              placeholder="Выберите время"
+              status={hasError ? 'error' : ''}
             />
           )}
         />
       </Row>
-      <Controller
+      <FormController
         name="guests"
+        label="Количество гостей"
         control={control}
-        rules={{
-          required: 'Выберите количество гостей',
-        }}
-        render={({ field, fieldState }) => (
-          <Label
-            text="Количество гостей"
-            error={fieldState.error?.message}
-            field={
-              <Select
-                {...field}
-                options={GUESTS_OPTIONS}
-                placeholder="Выберите количество гостей"
-                status={fieldState.error ? 'error' : ''}
-              />
-            }
+        rules={BOOKING_FORM_RULES.guests}
+        render={({ field, hasError }) => (
+          <Select
+            {...field}
+            options={GUESTS_OPTIONS}
+            placeholder="Выберите количество гостей"
+            status={hasError ? 'error' : ''}
           />
         )}
       />
