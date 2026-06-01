@@ -1,4 +1,5 @@
 import styles from './index.module.scss';
+import { DetailsTable } from '@/domain/booking/components/DetailsTable';
 import { GuestName } from '@/domain/booking/components/GuestName';
 import { ResetButton } from '@/domain/booking/components/ResetButton';
 import Image from 'next/image';
@@ -14,6 +15,7 @@ export const SuccessBlock = () => {
       <p className={styles.description}>
         Столик сохранён за вами. Будем ждать вас по адресу Малая Бронная, 14.
       </p>
+      <DetailsTable />
       <ResetButton className={styles.btn} />
     </div>
   );

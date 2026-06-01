@@ -94,7 +94,7 @@ export const Form = () => {
         )}
       />
       <Button isLoading={isSubmitting} type="submit">
-        ЗАБРОНИРОВАТЬ СТОЛИК
+        {isSubmitting ? 'БРОНИРУЮ...' : 'ЗАБРОНИРОВАТЬ СТОЛИК'}
       </Button>
     </form>
   );
