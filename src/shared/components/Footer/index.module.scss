@@ -1,3 +1,5 @@
+@use '@/styles/vars' as *;
+
 .root {
   padding-bottom: 60px;
 }
@@ -12,4 +14,16 @@
   font-size: 11px;
   color: var(--color-text-secondary);
   letter-spacing: 0.08em;
+}
+
+@media (max-width: $breakpoint-xl) {
+  .root {
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .text:last-child {
+    display: none;
+  }
 }

@@ -1,3 +1,5 @@
+@use '@/styles/vars' as *;
+
 .root {
   padding: 64px;
   background-color: var(--color-bg-forest);
@@ -63,4 +65,31 @@
   line-height: 16px;
   letter-spacing: 0.08em;
   color: var(--color-text-meta-light);
+}
+
+@media (max-width: $breakpoint-xl) {
+  .root {
+    padding: 48px;
+  }
+}
+
+@media (max-width: $breakpoint-lg-xl) {
+  .root {
+    max-width: 100%;
+    padding: 48px 48px 64px;
+  }
+
+  .description {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .description {
+    line-height: 22px;
+  }
+
+  .root {
+    padding: 30px 24px 38px;
+  }
 }
