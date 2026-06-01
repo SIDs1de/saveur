@@ -79,6 +79,8 @@ export const THEME_CONFIG: ThemeConfig = {
       activeShadow: '0 0 0 3px rgba(200, 150, 62, 0.13)',
       paddingInline: 14,
       colorError: 'var(--color-state-error)',
+      cellWidth: 36,
+      cellHeight: 24,
     },
   },
 };

@@ -7,7 +7,13 @@ import Image from 'next/image';
 export const SuccessBlock = () => {
   return (
     <div className={styles.root}>
-      <Image width={62} height={62} src="/success-badge.svg" alt="Success" />
+      <Image
+        className={styles.icon}
+        width={62}
+        height={62}
+        src="/success-badge.svg"
+        alt="Success"
+      />
       <p className={styles.successText}>БРОНИРОВАНИЕ ПОДТВЕРЖДЕНО</p>
       <h2>
         До встречи, <GuestName />!

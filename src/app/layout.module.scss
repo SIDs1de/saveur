@@ -1,5 +1,13 @@
+@use '@/styles/vars' as *;
+
 .layout {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+@media (max-width: $breakpoint-xl) {
+  .layout {
+    gap: 14px;
+  }
 }
