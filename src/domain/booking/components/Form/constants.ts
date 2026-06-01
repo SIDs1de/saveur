@@ -54,6 +54,6 @@ export const FORM_RULES: FormRules = {
 
 export const DATE_PICKER_PROPS = {
   format: 'DD.MM.YYYY',
-  placeholder: 'дд.мм.гг',
+  placeholder: 'дд.мм.гггг',
   disabledDate: isDisabledDate,
 };
