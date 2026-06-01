@@ -9,8 +9,8 @@ import {
 } from './constants';
 import styles from './index.module.scss';
 import { BookingFormValues } from './types';
-import { onSubmit } from './utils';
 import { FormController } from '@/domain/booking/components/FormController';
+import { bookingFlowStore } from '@/domain/booking/model/bookingFlow.store';
 import { Button } from '@/shared/components/Button';
 import { Row } from '@/shared/components/Row';
 import { DatePicker, Input, Select } from 'antd';
@@ -24,7 +24,7 @@ export const BookingForm = () => {
   } = useForm<BookingFormValues>(BOOKING_FORM_CONFIG);
 
   return (
-    <form className={styles.root} onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.root} onSubmit={handleSubmit(bookingFlowStore.submit)}>
       <FormController
         name="name"
         label="Имя"

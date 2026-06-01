@@ -23,7 +23,7 @@ for (let i = 1; i <= 12; i++) {
 export const DEFAULT_FORM_VALUES: DefaultValues<BookingFormValues> = {
   name: '',
   phone: '',
-  date: undefined,
+  date: null,
   time: undefined,
   guests: undefined,
 };
