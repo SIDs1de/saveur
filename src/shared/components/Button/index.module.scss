@@ -58,8 +58,12 @@
   }
 }
 
-.loader {
+.loaderWrapper {
   width: 16px;
+  transform: translateY(1px);
+}
+
+.loader {
   animation: spin 1s linear infinite;
 }
 

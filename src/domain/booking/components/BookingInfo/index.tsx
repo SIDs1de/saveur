@@ -1,6 +1,6 @@
-import { TransitionLayer } from '../TransitionLayer';
 import styles from './index.module.scss';
 import { BookingInfoProps } from './types';
+import { TransitionLayer } from '@/shared/components/TransitionLayer';
 import clsx from 'clsx';
 
 export const BookingInfo = ({ className }: BookingInfoProps) => {

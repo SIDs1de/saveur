@@ -7,4 +7,5 @@ export type ButtonProps = ButtonVariants & {
   isFullWidth?: boolean;
   isLoading?: boolean;
   disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 };

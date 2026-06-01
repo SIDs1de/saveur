@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
 
-export type TransitionLayerProps = {
+export type RowProps = {
   children: ReactNode;
 };
