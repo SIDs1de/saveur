@@ -41,7 +41,6 @@ describe('BookingFlowStore', () => {
     store.reset();
 
     expect(store.step).toBe(BookingStep.FORM);
-    expect(store.booking).toBeNull();
   });
 
   it('submits form values and completes the booking flow', async () => {

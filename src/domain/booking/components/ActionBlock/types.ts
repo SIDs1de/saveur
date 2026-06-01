@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export type BookingActionBlockProps = {
+export type ActionBlockProps = {
   className?: string;
   formStep: ReactNode;
   successStep: ReactNode;

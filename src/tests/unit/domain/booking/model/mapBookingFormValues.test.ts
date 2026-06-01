@@ -1,9 +1,9 @@
-import { BookingFormValues } from '@/domain/booking/components/BookingForm/types';
+import { FormValues } from '@/domain/booking/components/Form/types';
 import { mapBookingFormValues } from '@/domain/booking/model/mapBookingFormValues';
 import dayjs from 'dayjs';
 import { describe, expect, it } from 'vitest';
 
-const VALID_FORM_VALUES: BookingFormValues = {
+const VALID_FORM_VALUES: FormValues = {
   name: '  Анна Смирнова  ',
   phone: '+7 (999) 123-45-67',
   date: dayjs('2026-06-10'),

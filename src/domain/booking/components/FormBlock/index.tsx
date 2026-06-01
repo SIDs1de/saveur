@@ -1,15 +1,15 @@
 import styles from './index.module.scss';
-import { BookingForm } from '@/domain/booking/components/BookingForm';
+import { Form } from '@/domain/booking/components/Form';
 
-export const BookingFormBlock = () => {
+export const FormBlock = () => {
   return (
-    <div className={styles.main}>
+    <div>
       <span className={styles.step}>Шаг 01</span>
       <h2 className={styles.title}>Забронировать столик</h2>
       <p className={styles.description}>
         Заполните форму — подтверждение займёт всего пару секунд.
       </p>
-      <BookingForm />
+      <Form />
     </div>
   );
 };

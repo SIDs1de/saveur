@@ -8,4 +8,5 @@ export type ButtonProps = ButtonVariants & {
   isLoading?: boolean;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  className?: string;
 };

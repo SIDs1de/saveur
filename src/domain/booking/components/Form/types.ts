@@ -1,7 +1,7 @@
 import { Dayjs } from 'dayjs';
 import { RegisterOptions } from 'react-hook-form';
 
-export type BookingFormValues = {
+export type FormValues = {
   name: string;
   phone: string;
   date: Dayjs | null;
@@ -9,6 +9,6 @@ export type BookingFormValues = {
   guests?: string;
 };
 
-export type BookingFormRules = {
-  [K in keyof BookingFormValues]?: RegisterOptions<BookingFormValues, K>;
+export type FormRules = {
+  [K in keyof FormValues]?: RegisterOptions<FormValues, K>;
 };
