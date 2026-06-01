@@ -1,30 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SAVEUR Booking
 
-## Getting Started
+Тестовое задание: адаптивный виджет бронирования столика в ресторане. Проект реализован на Next.js с типизированной формой, валидацией, экраном успешного бронирования и небольшими UI-анимациями.
 
-First, run the development server:
+## Стек
+
+- Next.js 16, React 19, TypeScript
+- Ant Design, SCSS Modules
+- React Hook Form
+- MobX
+- Framer Motion
+- Vitest
+- Husky
+
+## Локальный запуск
+
+Для запуска потребуются Node.js `>=20.9.0` и pnpm `10.14.0`.
 
 ```bash
+pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+После запуска приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Production-сборка и запуск:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build
+pnpm start
+```
 
-## Learn More
+## Проверки
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm test          # unit-тесты
+pnpm types         # проверка TypeScript
+pnpm lint          # ESLint
+pnpm format:check  # проверка форматирования
+pnpm check         # полный набор проверок
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Git Hooks
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Для автоматического контроля качества настроен Husky:
 
-## Deploy on Vercel
+- `pre-commit` запускает `pnpm check`;
+- `pre-push` запускает `pnpm check:push`, который также выполняет полный набор проверок.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Таким образом, форматирование, ESLint, генерация типов SCSS Modules, проверка TypeScript и unit-тесты выполняются до отправки изменений.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Архитектура
+
+Код разделён на два основных слоя:
+
+- `src/domain/booking` инкапсулирует компоненты, типы, API-заглушку и MobX-store сценария бронирования.
+- `src/shared` содержит переиспользуемые компоненты, конфигурацию и утилиты, не привязанные к конкретному домену.
+
+Unit-тесты находятся отдельно от основной логики в `src/tests/unit`. Типы для SCSS Modules генерируются в `__generated__`, поэтому опечатка в имени CSS-класса обнаруживается на этапе проверки TypeScript.
+
+## Принятые решения
+
+Сценарий бронирования хранится в небольшом MobX-store: это позволяет оставить клиентскую прослойку тонкой и не передавать состояние через цепочки props или отдельный context. Форма построена на React Hook Form, а повторяющаяся связка поля, label и ошибки вынесена в типизированный `FormController`. Количество гостей реализовано через `Select`, чтобы ограничить допустимые значения и корректно склонять слово «гость». Для единообразной вёрстки используются CSS- и SCSS-переменные, а шрифты подключены через `next/font/google` для оптимизации. Переиспользуемая кнопка поддерживает варианты через `cva()`, состояния `disabled` и `loading`; переключение шагов, loader и ошибки полей анимированы с помощью Framer Motion.
+
+Дополнительно настроены Prettier, ESLint, автоматическая сортировка импортов и запрет вложенных относительных импортов. Утилиты, API-заглушка, преобразование данных формы и MobX-store покрыты unit-тестами. Исходный код типизирован без использования `any`.
+
+## Заметки для ревью
+
+- Компоненты и логика декомпозированы; `index.tsx` по возможности содержат только декларативную вёрстку, а параметры компонентов и тексты ошибок вынесены в константы. При росте логики на нескольких хуках следующим шагом было бы выделение custom hooks.
+- Общие компоненты и утилиты находятся в `shared`, бизнес-логика бронирования инкапсулирована в `domain/booking`. Переиспользуемая кнопка из `shared` через `cva()` поддерживает два размера, два варианта оформления, `disabled` и `loading`.
+- MobX выбран как простой способ управлять шагами бронирования без цепочек props и отдельного context. Для формы выделен переиспользуемый типизированный `FormController`.
+- Количество гостей сделано через `Select`, чтобы ограничить значения и корректно склонять слово «гость». Для телефона оставлен свободный ввод с валидацией и нормализацией: из-за неоднозначности ТЗ маска не добавлялась.
+- Для разработки настроены CSS- и SCSS-переменные, шрифты из Google Fonts через `next/font`, Prettier, ESLint, сортировка импортов и запрет вложенных относительных импортов. Форматирование с автоисправлением запускается командой `pnpm format`.
+- Анимации переключения шагов, loader кнопки и появления ошибок реализованы на Framer Motion.
+- Утилиты и MobX-store покрыты unit-тестами. Тесты и сгенерированные типы SCSS Modules вынесены отдельно, чтобы не смешивать их с основной логикой.
+- Проект типизирован без `any`; типизация SCSS Modules защищает от обращения к несуществующим CSS-классам.
+
+## Что можно улучшить
+
+- Перенести экран успешного бронирования на отдельный route или хранить текущий шаг в search-параметре, чтобы состояние интерфейса отражалось в URL.
+- Добавить маску ввода телефона. Сейчас сохранён свободный ввод со строгой валидацией и нормализацией допустимых скобок и дефисов.
+- Заменить API-заглушку реальным запросом и добавить полноценную обработку сетевых ошибок.
+- Дополнить unit-тесты компонентными и E2E-тестами основного пользовательского сценария.
